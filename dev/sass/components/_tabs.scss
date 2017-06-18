@@ -1,0 +1,37 @@
+/*tab menu*/
+.tab{
+	overflow: hidden;
+	float: left;
+}
+.tab nav{
+	width: 100%;
+	display: inline-block;
+	float: left;
+	border-bottom: solid 2px #e6e6e6;
+	margin-bottom: 30px;
+	position: relative;
+}
+.tab nav .bottom-line{
+	height: 2px;
+	background-color: #7beec7;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	-webkit-transition:all .2s ease-in-out;
+			transition:all .2s ease-in-out;
+}
+.tab nav a{
+	font-family: "Montserrat", sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 0 10px 20px;
+	color:#999999;
+	display: inline-block;
+	-webkit-transition:all .2s ease-in-out;
+			transition:all .2s ease-in-out;
+	position: relative;
+}
+.tab nav a.current{color:#60606e;}
+.tab .tab_single{display: none;}
+.tab .tab_single.shown{display: block;}

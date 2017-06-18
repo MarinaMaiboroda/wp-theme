@@ -1,0 +1,39 @@
+PATHS:
+
+  # Path to assets folder
+  assets: "./dev/"
+
+  # Path to dist folder
+  dist: "./dist/"
+
+  # Paths to fonts
+  fonts:
+    - "dev/fonts/*"
+    - "bower_components/bootstrap-sass/assets/fonts/bootstrap/"
+
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "bower_components/bootstrap-sass/assets/stylesheets/"
+    - "bower_components/material-design-icons/iconfont/"
+    - "bower_components/flexslider/"
+    - "bower_components/animate-sass/"
+
+  # Paths to JavaScript libraries, which are combined into one file
+  javascript:
+    # Libraries
+    - "bower_components/jquery/dist/"
+
+    # Bootstrap files
+    - "bower_components/bootstrap-sass/assets/javascripts/"
+    - "bower_components/jquery-smooth-scroll/"
+
+    #Isotope
+    - "bower_components/isotope/dist/"
+
+    - "bower_components/animsition/src/js/"
+
+    - "bower_components/flexslider/"
+
+    - "bower_components/wow/dist/"
+
+

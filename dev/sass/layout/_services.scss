@@ -1,0 +1,19 @@
+/* ##### 03 : SERVICES  ##### */
+.services .services-left i.icon{
+	display: block;
+	font-size: 36px;
+}
+.services .services-left .service-title{
+	font-size: 18px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.services .services-left ul li{
+	list-style: none;
+	text-transform: uppercase;
+	line-height: 30px;
+	color:#999999;
+}
+@media (max-width: 991px) {
+	.services .services-left{text-align: center;margin-bottom: 50px;}
+}

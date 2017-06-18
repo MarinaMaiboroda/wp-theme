@@ -1,0 +1,45 @@
+/* ##### 06 : BENEFITS STYLES  ##### */
+/*benefits 1*/
+.benefits_1_single{
+	width: 100%;
+	text-align: center;
+}
+.benefits_1_single > i{
+	display: inline-block;
+	font-size: 60px;
+	position: relative;
+}
+.benefits_1_single > i:after{
+	content: "";
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	height: 20px;
+	width: 40px;
+	background-color :#7beec7;
+	z-index: -1
+}
+.benefits_1_single > .title{
+	font-size: 18px;
+}
+
+/*benefits 2 */
+.benefits_2_single{margin-bottom: 30px;}
+.benefits_2_single:nth-last-child(-n+3){margin-bottom: 30px;}
+.benefits_2_single > i{
+	display: inline-block;
+	background-color: #7beec7;
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+	color:white;
+	font-size: 30px;
+	margin-right: 20px;
+}
+.benefits_2_single > .title{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	color:#60606e;
+}

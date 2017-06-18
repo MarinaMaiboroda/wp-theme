@@ -1,0 +1,25 @@
+/* ##### 09 : TESTIMONIALS STYLES  ##### */
+.testimonials{
+	position: relative;
+	float: left;
+}
+.testimonials_single{
+	width: 100%;
+	text-align: center;
+}
+.testimonials_single .author_pic{
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.testimonials_single p{margin: 30px 0;}
+.testimonials_single .author_name{
+	padding: 7px;
+	background-color: #7beec7;
+	color:white;
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	display: inline-block;
+}
