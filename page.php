@@ -5,33 +5,71 @@
  * This is the template that displays all pages by default.
  *
  * @package WordPress
- * @subpackage Loral_Langemeier
- * @since Loral Langemeier 1.0
+ * @subpackage akad
+ * @since akad 1.0
  */
 
-?>
+get_header(); ?>
+    <!-- HERO SECTION  -->
+    <div class="site-hero_2">
+        <div class="page-title">
+            <div class="big-title montserrat-text uppercase">
+                <?php the_title(); ?>
+            </div>
+            <div class="small-title montserrat-text uppercase">
+                <?php
+                    $pageFrontID = get_option('page_on_front');
+                    $pageFrontTitle = get_the_title($pageFrontID); 
+                    $slugCurrentPage = get_post_field( 'post_name', get_post() );
+                ?>
 
-<?php get_header(); ?>
-<div class="page">
-    <img class="page-banner" src="<?= get_template_directory_uri ();?>/dist/images/page-banner.png" alt="banner image"/>
-    <div class="full-container">
-	<?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-    	<article class="column-4">
-	<?php else: ?>
-	<article>
-	<?php endif; ?>
-            <h1 class="page-title"><?php the_title(); ?></h1>
+                <?php echo $pageFrontTitle; ?> / <?php echo $slugCurrentPage; ?>
+                    
+            </div>                
+        </div>
+    </div><!-- /.HERO SECTION -->
+
+    <section>
+        <div class="container">
             <?php if (have_posts()): while (have_posts()): the_post(); ?>
                 <?php the_content(); ?>
             <?php endwhile; endif; ?>
+        </div>
+    </section>   
 
-         </article>
-	<aside class="column-2">	
-	<?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-    		<?php dynamic_sidebar( 'main-sidebar' ); ?>
-	<?php endif; ?>
-	</aside>
-    </div>
-</div>
+    <?php 
+        $args = array(
+            'post_parent' => get_the_ID(), //ID parent page
+            'post_type'   => 'page', 
+            'numberposts' => -1
+        );
+
+        $children = get_children( $args );
+
+        var_dump($children);
+?>  
+
+
+        <section>
+        <div class="container">
+            <div class="row">
+                <?php 
+                    foreach ( $children as $childPage ): ?>
+                    <div class="col-md-6">
+                        <div class="section-title" style="text-align:left;float:left;width:100%;margin-bottom:0">
+                            <span><?php echo $childPage->post_title; ?></span>
+                            <p class="montserrat-text uppercase">we are awesome</p>
+                        </div>
+
+                        <?php echo $childPage->post_content; ?>
+                    </div>
+
+                    <?php endforeach; ?>              
+
+            </div>
+        </div>
+    </section>
+
+
 
 <?php get_footer(); ?>
