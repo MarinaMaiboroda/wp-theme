@@ -37,39 +37,4 @@ get_header(); ?>
         </div>
     </section>   
 
-    <?php 
-        $args = array(
-            'post_parent' => get_the_ID(), //ID parent page
-            'post_type'   => 'page', 
-            'numberposts' => -1
-        );
-
-        $children = get_children( $args );
-
-        var_dump($children);
-?>  
-
-
-        <section>
-        <div class="container">
-            <div class="row">
-                <?php 
-                    foreach ( $children as $childPage ): ?>
-                    <div class="col-md-6">
-                        <div class="section-title" style="text-align:left;float:left;width:100%;margin-bottom:0">
-                            <span><?php echo $childPage->post_title; ?></span>
-                            <p class="montserrat-text uppercase">we are awesome</p>
-                        </div>
-
-                        <?php echo $childPage->post_content; ?>
-                    </div>
-
-                    <?php endforeach; ?>              
-
-            </div>
-        </div>
-    </section>
-
-
-
 <?php get_footer(); ?>
