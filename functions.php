@@ -78,7 +78,7 @@ add_filter('wp_nav_menu','change_submenu_class');
 
 /* Chenge eecept */
 function custom_excerpt_length() {
-    $length = 25;
+    $length = 150;
     return $length;
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
@@ -92,7 +92,7 @@ add_filter( 'excerpt_more', 'clean_excerpt_more' );
 function custom_the_excerpt( $excerpt ) {
     $ellipsis = ' ';
     
-    $link = $ellipsis .'<a class="more-link" href="' . get_permalink() . '">Read More</a>';
+    $link = $ellipsis .'<a class="link montserrat-text uppercase" href="' . get_permalink() . '">continue reading <i class="icon ion-arrow-right-c"></i></a>';
     return $excerpt . $link;
 }
 
@@ -102,13 +102,13 @@ add_filter( 'get_the_excerpt', 'custom_the_excerpt' );
 add_action( 'widgets_init', 'akad_widgets_init' );
 function akad_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Footer Column 1', 'akad' ),
+        'name' => __( 'Main', 'akad' ),
         'id' => 'footer-1',
         'description' => __( 'Widgets in this area will be shown on the footer.', 'akad' ),
-        'before_widget' => ' <div id="%1$s" class="one-aside-block">',
+        'before_widget' => ' <div id="%1$s" class="widget">',
 	       'after_widget'  => '</div>',
-	       'before_title'  => '<h3>',
-	       'after_title'   => '</h3>',
+	       'before_title'  => '<div class="widget_title">',
+	       'after_title'   => '</div>',
     ) );
 
  //    register_sidebar( array(

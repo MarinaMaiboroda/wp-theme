@@ -13,30 +13,67 @@
  */
 
 get_header(); ?>
-<div class="page">
-    <img class="page-banner" src="<?= get_template_directory_uri ();?>/dist/images/page-banner.png" alt="banner image"/>
-    <div class="full-container">
-	<?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-    	<article class="column-4">
-	<?php else: ?>
-	<article>
-	<?php endif; ?>
-            <?php if (have_posts()): while (have_posts()): the_post(); ?>
-		<div class="news-content">
-                                        	<a href="<?php the_permalink() ?>"><h3><?php the_title(); ?></h3></a>
-                                                <p class="date"><?php echo get_the_date($the_query -> ID); ?> by <?php the_author_posts_link();?></p>
-                                        	<?php the_post_thumbnail('thumbnail'); the_excerpt(__('(Read more)')); ?>
-						<hr/>
-						<?php echo "FILED UNDER:"; the_category(','); echo " >>" ?> <?php the_tags('TAGGED WITH: '); ?>
+ <!-- HERO SECTION  -->
+    <div class="site-hero_2">
+        <div class="page-title">
+            <div class="big-title montserrat-text uppercase">
+                <?php the_title(); ?>
+            </div>
+            <div class="small-title montserrat-text uppercase">
+                <?php
+                    $pageFrontID = get_option('template');
+                    var_dump(the_ID());
+                    $pageFrontTitle = get_the_title($pageFrontID); 
+                    $slugCurrentPage = get_post_field( 'post_name', get_post() );
+                ?>
+
+                <?php echo $pageFrontTitle; ?> / <?php echo $slugCurrentPage; ?>
+                    
+            </div>                
+        </div>
+    </div><!-- /.HERO SECTION -->
+
+
+  <section>
+		<div class="container">
+			<div class="row">
+			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+						<div class="col-md-9 col-sm-12">
+			<?php else : ?>	
+					<div class="col-xs-12">
+			<?php endif; ?>	
+			
+			<?php if (have_posts()): while (have_posts()): the_post(); ?>
+							<!-- blog post -->
+							<div class="blog_post">
+								<div class="post_media">
+									 <?php the_post_thumbnail('full'); ?>
+								</div>
+								<div class="post_info">
+									<div class="post_date montserrat-text uppercase"><?php the_date('F d, Y'); ?></div>
+									<i class="icon ion-chatbox-working"></i>
+									<span>8</span>
+									<i class="icon ion-ios-heart"></i>
+									<span>15</span>
+								</div>
+								<?php the_excerpt(); ?>
+							</div>
+			<?php endwhile; endif; ?>		
+	
+			<?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
+
+			</div><!-- end col -->
+
+				<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+					<div class="col-md-3">
+					<div class="sidebar">
+						<?php dynamic_sidebar( 'footer-1' ); ?>
 					</div>
-	<?php endwhile; endif; ?>
-          <div class="navigation"><?php if (function_exists('wp_corenavi')) wp_corenavi(); ?></div>    
-         </article>
-	<aside class="column-2">	
-	<?php if ( is_active_sidebar( 'main-sidebar' ) ) : ?>
-    		<?php dynamic_sidebar( 'main-sidebar' ); ?>
-	<?php endif; ?>
-	</aside>
-    </div>
-</div>
+					</div>
+				<?php endif; ?>	
+			</div><!-- end row -->
+		</div><!-- end container -->
+	</section>
+
+
 <?php get_footer(); ?>
